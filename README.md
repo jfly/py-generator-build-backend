@@ -40,7 +40,7 @@ for possible next steps.
 ## Notes
 
 For performance reasons, the output of the generator is cached in
-`appdirs.user_cache_dir`. We compute cache entry by hashing together the
+`platformdirs.user_cache_dir`. We compute cache entry by hashing together the
 contents of the entire project directory, along with all environment variables.
 This does a pretty good job of capturing all the "inputs" that go into
 generating the package, but it's not perfect: the generator could be

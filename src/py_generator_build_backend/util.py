@@ -10,7 +10,7 @@ import tomllib
 from pathlib import Path
 from typing import Any, Type, TypeVar, get_args, get_origin
 
-import appdirs
+import platformdirs
 import pyproject_hooks
 from expandvars import expand
 from packaging.requirements import Requirement
@@ -195,7 +195,7 @@ def cached_generate_project() -> Path:
     hash_dir(key, project_root)
     key.update(json.dumps(dict(os.environ)).encode())
 
-    cache_dir = Path(appdirs.user_cache_dir(get_current_package_name()))
+    cache_dir = Path(platformdirs.user_cache_dir(get_current_package_name()))
     cached_result = cache_dir / "generated" / key.hexdigest()
 
     if cached_result.exists():

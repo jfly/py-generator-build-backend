@@ -5,9 +5,9 @@ description = "A Python build backend designed to wrap Python package generators
 version = "0.1.0"
 authors = [{name = "Jeremy Fleischman", email = "jeremyfleischman@gmail.com"}]
 dependencies = [
-    "appdirs",
     "expandvars",
     "packaging",
+    "platformdirs",
     "pyproject-hooks",
 ]
 
