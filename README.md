@@ -10,6 +10,10 @@ Create a new directory with a `pyproject.toml`:
 ```toml
 [project]
 name = "tictactoe-client"
+dynamic = [
+    "version",
+    "dependencies",
+]
 
 [build-system]
 requires = [
