@@ -51,5 +51,14 @@ about things like this, consider adopting a hermetic build tool like nix.
 build frontend is invoking this build backend, but as far as I can tell,
 there's no standardized mechanism for that.)
 
+## Development
+
+### Releasing
+
+Edit `version` in `pyproject.toml`:
+
+- `uv build`
+- `uv publish`
+
 [`openapi-python-client`]: https://github.com/openapi-generators/openapi-python-client
 [Packaging Python Projects]: https://packaging.python.org/en/latest/tutorials/packaging-projects/
