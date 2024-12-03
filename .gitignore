@@ -1,0 +1,8 @@
+# direnv
+/.direnv
+
+# Nix
+/result
+
+# Python
+__pycache__/
