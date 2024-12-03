@@ -36,6 +36,6 @@
         ];
       };
 
-      packages.default = pythonSet.mkVirtualEnv "venv" workspace.deps.default;
+      packages.default = pythonSet.py-generator-build-backend;
     };
 }
