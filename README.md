@@ -63,7 +63,9 @@ there's no standardized mechanism for that.)
 Edit `version` in `pyproject.toml`:
 
 - `uv build`
+- `git tag v...`
 - `uv publish`
+- `git push --tags`
 
 [`openapi-python-client`]: https://github.com/openapi-generators/openapi-python-client
 [Packaging Python Projects]: https://packaging.python.org/en/latest/tutorials/packaging-projects/
