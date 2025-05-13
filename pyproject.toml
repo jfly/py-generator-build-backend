@@ -2,7 +2,8 @@
 name = "py-generator-build-backend"
 requires-python = ">=3.12"
 description = "A Python build backend designed to wrap Python package generators into a PEP 517 compatible source tree"
-version = "1.0.0"
+readme = "README.md"
+version = "1.0.1"
 authors = [{name = "Jeremy Fleischman", email = "jeremyfleischman@gmail.com"}]
 dependencies = [
     "expandvars",
