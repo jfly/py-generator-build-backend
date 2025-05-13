@@ -26,7 +26,7 @@ generator = "openapi-python-client generate --url https://raw.githubusercontent.
 ```
 
 The `tools.py-generator-build-backend.generator` is the key to making this work:
-this command must product a valid PEP 517 source tree in the (not-yet-existent)
+this command must produce a valid PEP 517 source tree in the (not-yet-existent)
 directory specified by the `$GENERATOR_OUT_PATH` environment variable. You can
 interpolate other environment variables in `generator` if you need to.
 
@@ -44,12 +44,13 @@ for possible next steps.
 ## Notes
 
 For performance reasons, the output of the generator is cached in
-`platformdirs.user_cache_dir`. We compute cache entry by hashing together the
-contents of the entire project directory, along with all environment variables.
-This does a pretty good job of capturing all the "inputs" that go into
-generating the package, but it's not perfect: the generator could be
+`platformdirs.user_cache_dir`. We compute the cache entry by hashing together
+the contents of the entire project directory, along with all environment
+variables. This does a pretty good job of capturing all the "inputs" that go
+into generating the package, but it's not perfect: the generator could be
 non-deterministic, or packages could be updated in the `PATH`. If you care
-about things like this, consider adopting a hermetic build tool like nix.
+about things like this, consider adopting a hermetic build tool like
+[nix](https://nixos.org/).
 
 (Ideally we'd have access to a scratch space that only lives as long as the
 build frontend is invoking this build backend, but as far as I can tell,

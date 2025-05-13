@@ -22,7 +22,7 @@ __all__ = [
 
 def type_matches(val: Any, t: Type) -> bool:
     """
-    Basically a version of `isinstance` that can handle "parameterics generics" (like `list[str]`).
+    Basically a version of `isinstance` that can handle "parameterized generics" (like `list[str]`).
     """
     origin = get_origin(t)
     if not origin:
@@ -35,7 +35,7 @@ def type_matches(val: Any, t: Type) -> bool:
     if origin is list:
         args = get_args(t)
         assert isinstance(val, list)
-        assert len(args) == 1, "We don't support runtime typechecking of type: {t}"
+        assert len(args) == 1, f"We don't support runtime typechecking of type: {t}"
 
         (arg,) = args
         for v in val:
