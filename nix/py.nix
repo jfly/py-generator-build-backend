@@ -14,11 +14,20 @@
       };
       pythonSet =
         (pkgs.callPackage inputs.pyproject-nix.build.packages {
-          python = pkgs.python3;
+          # 2025-05-12: this is the oldest supported version of Python. See
+          # https://devguide.python.org/versions/
+          python = pkgs.python39;
         }).overrideScope
           (
             lib.composeManyExtensions [
               inputs.pyproject-build-systems.overlays.default
+              # <<< (final: prev: {
+              # <<<   hatchling = prev.hatchling.overrideAttrs (oldAttrs: {
+              # <<<     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [
+              # <<<       (lib.traceVal (final.resolveBuildSystem { editables = [ ]; }))
+              # <<<     ];
+              # <<<   });
+              # <<< })
               overlay
             ]
           );

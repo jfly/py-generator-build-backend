@@ -190,7 +190,8 @@ def cached_generate_project() -> Path:
     # Compute a "key" for the generated project by hashing together the contents of the
     # entire project directory, along with all environment variables (which can be interpolated into the `generator` we run).
     # This does a pretty good job of capturing all the "inputs" that go into generating the package, but it's not perfect:
-    # the generator could be non-deterministic, or packages could be updated in the `PATH`. If you care about things like this, consider adopting a hermetic build tool like nix.
+    # the generator could be non-deterministic, or packages could be updated in the `PATH`. If you care about things like this,
+    # consider adopting a hermetic build tool like [nix](https://nixos.org/).
     key = hashlib.sha256()
     hash_dir(key, project_root)
     key.update(json.dumps(dict(os.environ)).encode())

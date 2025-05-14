@@ -4,7 +4,9 @@
   inputs = {
     devshell.url = "github:numtide/devshell";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Note, we use a stable release rather than `nixos-unstable` in order to
+    # pull in the oldest supported version of Python.
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     systems.url = "github:nix-systems/default";
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
