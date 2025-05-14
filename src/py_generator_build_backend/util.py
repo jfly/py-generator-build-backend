@@ -6,12 +6,12 @@ import os
 import shlex
 import subprocess
 import tempfile
-import tomllib
 from pathlib import Path
 from typing import Any, Type, TypeVar, get_args, get_origin
 
 import platformdirs
 import pyproject_hooks
+import tomllib
 from expandvars import expand
 from packaging.requirements import Requirement
 
@@ -161,7 +161,9 @@ def generate_project(project_root: Path, out_path: Path):
         if build_system_requires != generated_build_system_requires:
             missing_requires = generated_build_system_requires - build_system_requires
             extra_requires = build_system_requires - generated_build_system_requires
-            assert False, f"The generated `build-system.requires` is out of sync with your project's `build-system.requires`. You must update your `pyproject.toml` accordingly. Missing requires: {missing_requires}, extra requires: {extra_requires}"
+            assert False, (
+                f"The generated `build-system.requires` is out of sync with your project's `build-system.requires`. You must update your `pyproject.toml` accordingly. Missing requires: {missing_requires}, extra requires: {extra_requires}"
+            )
 
         # Ensure the parent of `out_path` exists.
         out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -190,7 +192,8 @@ def cached_generate_project() -> Path:
     # Compute a "key" for the generated project by hashing together the contents of the
     # entire project directory, along with all environment variables (which can be interpolated into the `generator` we run).
     # This does a pretty good job of capturing all the "inputs" that go into generating the package, but it's not perfect:
-    # the generator could be non-deterministic, or packages could be updated in the `PATH`. If you care about things like this, consider adopting a hermetic build tool like nix.
+    # the generator could be non-deterministic, or packages could be updated in the `PATH`. If you care about things like this,
+    # consider adopting a hermetic build tool like [nix](https://nixos.org/).
     key = hashlib.sha256()
     hash_dir(key, project_root)
     key.update(json.dumps(dict(os.environ)).encode())
