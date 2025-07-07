@@ -60,8 +60,7 @@ there's no standardized mechanism for that.)
 
 ### Releasing
 
-Edit `version` in `pyproject.toml`:
-
+- Edit `version` in `pyproject.toml`, and commit.
 - `uv build`
 - `git tag v...`
 - `uv publish`
