@@ -60,11 +60,12 @@ there's no standardized mechanism for that.)
 
 ### Releasing
 
+- `git checkout main`
 - Edit `version` in `pyproject.toml`, and commit.
 - `uv build`
 - `git tag v...`
 - `uv publish`
-- `git push --tags`
+- `git push --follow-tags`
 
 [`openapi-python-client`]: https://github.com/openapi-generators/openapi-python-client
 [Packaging Python Projects]: https://packaging.python.org/en/latest/tutorials/packaging-projects/
