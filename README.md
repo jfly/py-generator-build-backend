@@ -49,7 +49,7 @@ the contents of the entire project directory, along with all environment
 variables. This does a pretty good job of capturing all the "inputs" that go
 into generating the package, but it's not perfect: the generator could be
 non-deterministic, or packages could be updated in the `PATH`. If you care
-about things like this, consider adopting a hermetic build tool like
+about things like this, consider adopting a hermetic build tool such as
 [nix](https://nixos.org/).
 
 (Ideally we'd have access to a scratch space that only lives as long as the
